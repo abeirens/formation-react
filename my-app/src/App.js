@@ -13,6 +13,10 @@ function App() {
     setCounter(counter - 1)
   }
 
+  function reset() {
+    setCounter(0)
+  }
+
 
   return (
     <div className="App">
@@ -22,6 +26,7 @@ function App() {
 
       <button onClick={add}>+</button>
       <button onClick={remove}>-</button>
+      <button onClick={reset}>Réinitialiser</button>
     </div>
   );
 }
