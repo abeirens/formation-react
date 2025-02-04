@@ -1,66 +1,33 @@
 import './App.css';
-import { useState } from 'react';
+import Home from './views/home';
+import CountersIndex from './views/countersIndex';
+import CalculatorIndex from './views/calculatorIndex';
 
-function Counter({value, add, remove, reset, supp}) {
-  return (
-    <div>
-      <h1>Compteur</h1>
+import {Routes, Route, Link} from 'react-router-dom';
 
-      <div>{value}</div>
-
-      <button onClick={() => {add()}}>+</button>
-      <button onClick={() => {remove()}}>-</button>
-      <button onClick={() => {reset()}}>Réinitialiser</button>
-      <button onClick={() => {supp()}}>Supprimer</button>
-    </div>
-  )
-}
 
 function App() {
-  const [countersArray, setCountersArray] = useState([]);
-
-  function increment(index) {
-    const newCountersArray = [...countersArray];
-    newCountersArray[index] += 1;
-    setCountersArray(newCountersArray);
-  }
-
-  function decrement(index) {
-    const newCountersArray = [...countersArray];
-    newCountersArray[index] -= 1;
-    setCountersArray(newCountersArray);
-  }
-
-  function reinit(index) {
-    const newCountersArray = [...countersArray];
-    newCountersArray[index] = 0;
-    setCountersArray(newCountersArray);
-  }
-
-  function addNewCounter() {
-    setCountersArray([...countersArray, 0])
-  }
-
-  function removeCounter(index) {
-    setCountersArray(countersArray.filter((_, i) => i !== index))
-  }
-
   return (
     <div className="App">
-      <button onClick={addNewCounter}>Ajouter un compteur</button>
-      <div className="container">
-        {countersArray.map((value, index) => (
-          <div className="container-counter" key={`counter-${index}`}>
-            <Counter
-              value={value}
-              add={() => {increment(index)}}
-              remove={() => {decrement(index)}}
-              reset={() => {reinit(index)}}
-              supp={() => {removeCounter(index)}}
-            />
-          </div>
-        ))}
-      </div>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Accueil</Link>
+          </li>
+          <li>
+            <Link to="/counters">Compteurs</Link>
+          </li>
+          <li>
+            <Link to="/calculator">Calculatrice</Link>
+          </li>
+        </ul>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/counters" element={<CountersIndex />} />
+        <Route path="/calculator" element={<CalculatorIndex />} />
+      </Routes>
     </div>
   );
 }
