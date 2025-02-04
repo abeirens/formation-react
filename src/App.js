@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import * as Buttons from "./buttons"
+import * as Buttons from './buttons'
 
 function App() {
   const [result, setResult] = useState(0);
@@ -14,29 +14,29 @@ function App() {
 
   const handleAction = (action, buttonValue) => {
     switch (action) {
-      case "reinit":
+      case 'reinit':
         reinit();
         break;
-      case "undo":
+      case 'undo':
         undo();
         break;
-      case "percent":
+      case 'percent':
         percent();
         break;
-      case "addOperator":
+      case 'addOperator':
         addOperator(buttonValue);
         break;
-      case "calculate":
+      case 'calculate':
         calculate(buttonValue);
         break;
-      case "addComma":
+      case 'addComma':
         addComma(buttonValue);
         break;
-      case "equals":
+      case 'equals':
         equals();
         break;
       default:
-        console.alert("Action inconnue :", action);
+        console.alert('Action inconnue :', action);
     }
   };
 
