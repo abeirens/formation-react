@@ -50,7 +50,7 @@ function App() {
       <button onClick={addNewCounter}>Ajouter un compteur</button>
       <div className="container">
         {countersArray.map((value, index) => (
-          <div className="container-counter">
+          <div className="container-counter" key={`counter-${index}`}>
             <Counter
               value={value}
               add={() => {increment(index)}}
