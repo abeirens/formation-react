@@ -128,7 +128,7 @@ function App() {
           <Row className="row-cols-4 justify-content-end g-1 mt-2">
             {Buttons.buttons.flat().map((button, index) => {
               return (
-                <Col key={`counters-array-${index}`}>
+                <Col key={`button-${index}`}>
                   <Button
                     className="w-100"
                     onClick={() => handleAction(button.action, button.value)}
