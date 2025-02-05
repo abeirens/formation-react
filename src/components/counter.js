@@ -1,14 +1,23 @@
+import { Button } from 'react-bootstrap';
+
 export default function Counter({value, add, remove, reset, supp}) {
   return (
-    <div>
-      <h1>Compteur</h1>
+    <div className="border border-dark p-2 text-center">
+      <h3 className="mb-3">Compteur</h3>
 
-      <div>{value}</div>
+      <div className="d-flex align-items-center justify-content-center gap-2 mb-3">
+        <Button variant="secondary" onClick={() => {add()}}>+</Button>
+        <div>{value}</div>
+        <Button variant="secondary" onClick={() => {remove()}}>-</Button>
+      </div>
 
-      <button onClick={() => {add()}}>+</button>
-      <button onClick={() => {remove()}}>-</button>
-      <button onClick={() => {reset()}}>Réinitialiser</button>
-      <button onClick={() => {supp()}}>Supprimer</button>
+      <Button variant="warning" onClick={() => {reset()}} className="me-2">
+        Réinitialiser
+      </Button>
+
+      <Button variant="danger" onClick={() => {supp()}}>
+        <i className="bi bi-trash3-fill"></i>
+      </Button>
     </div>
   )
 }
