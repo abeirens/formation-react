@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 import { useState } from 'react';
-import Counter from '../components/counter';
+import Counter from '../../components/Counter';
 import { Col, Row, Container, Button } from 'react-bootstrap';
 
 

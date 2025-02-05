@@ -1,7 +1,7 @@
 import {Routes, Route} from 'react-router-dom';
 import Home from '../views/home';
-import CountersIndex from '../views/countersIndex';
-import CalculatorIndex from '../views/calculatorIndex';
+import CountersIndex from '../views/Counters';
+import CalculatorIndex from '../views/Calculator';
 import PageNotFound from '../views/pageNotFound'
 
 export default function Router() {

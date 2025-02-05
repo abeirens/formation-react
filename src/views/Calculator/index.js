@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Col, Row, Container, Button, Form } from 'react-bootstrap';
-import * as Buttons from '../buttons';
+import * as Buttons from '../../buttons';
 import {Link} from 'react-router-dom';
 
 export default function CalculatorIndex() {
