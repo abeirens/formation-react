@@ -3,15 +3,15 @@ import { Col, Row, Container, Button } from 'react-bootstrap';
 
 export default function Home() {
   return (
-    <Container className='text-center p-3'>
+    <Container className="text-center p-3">
       <h1 className="mb-3">Dashboard</h1>
-      <Row className='justify-content-center g-3'>
-        <Col xs="auto" className=''>
+      <Row className="justify-content-center g-3">
+        <Col xs="auto">
           <Link to="/counters">
             <Button variant="secondary">Compteurs</Button>
           </Link>
         </Col>
-        <Col xs="auto" className=''>
+        <Col xs="auto">
           <Link to="/calculator">
             <Button variant="secondary">Calculatrice</Button>
           </Link>
