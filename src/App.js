@@ -7,6 +7,21 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import * as Buttons from './buttons'
 
+function Counter({value, add, remove, reset, supp}) {
+  return (
+    <div>
+      <h1>Compteur</h1>
+
+      <div>{value}</div>
+
+      <button onClick={() => {add()}}>+</button>
+      <button onClick={() => {remove()}}>-</button>
+      <button onClick={() => {reset()}}>Réinitialiser</button>
+      <button onClick={() => {supp()}}>Supprimer</button>
+    </div>
+  )
+}
+
 function App() {
   const [result, setResult] = useState(0);
   const [operator, setOperator] = useState(false);
@@ -119,6 +134,34 @@ function App() {
     }
   }
 
+  const [countersArray, setCountersArray] = useState([]);
+
+  function increment(index) {
+    const newCountersArray = [...countersArray];
+    newCountersArray[index] += 1;
+    setCountersArray(newCountersArray);
+  }
+
+  function decrement(index) {
+    const newCountersArray = [...countersArray];
+    newCountersArray[index] -= 1;
+    setCountersArray(newCountersArray);
+  }
+
+  function reinitialisation(index) {
+    const newCountersArray = [...countersArray];
+    newCountersArray[index] = 0;
+    setCountersArray(newCountersArray);
+  }
+
+  function addNewCounter() {
+    setCountersArray([...countersArray, 0])
+  }
+
+  function removeCounter(index) {
+    setCountersArray(countersArray.filter((_, i) => i !== index))
+  }
+
   return (
     <div className="App">
       <div className="mt-5">
@@ -141,6 +184,21 @@ function App() {
             })}
           </Row>
         </Container>
+      </div>
+
+      <button onClick={addNewCounter}>Ajouter un compteur</button>
+      <div className="container">
+        {countersArray.map((value, index) => (
+          <div className="container-counter" key={`counter-${index}`}>
+            <Counter
+              value={value}
+              add={() => {increment(index)}}
+              remove={() => {decrement(index)}}
+              reset={() => {reinitialisation(index)}}
+              supp={() => {removeCounter(index)}}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );
