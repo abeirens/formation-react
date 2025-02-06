@@ -61,21 +61,20 @@ export const calculatorSlice = createSlice({
       state.operator = false;
     },
     addComma: (state, value) => {
-    if (!state.hasDecimal) {
-      if (state.result === 0) {
-        state.result = 0 + value.payload;
-      } else {
-        const lastChar = state.result.split('').slice(-1)[0];
-        if (state.result !== null && ['+', '-', '*', '/'].includes(lastChar)) {
-          state.result = state.result + 0 + value;
+      if (!state.hasDecimal) {
+        if (state.result === 0) {
+          state.result = 0 + value.payload;
         } else {
-          state.result = state.result + value;
+          const lastChar = state.result.split('').slice(-1)[0];
+          if (state.result !== null && ['+', '-', '*', '/'].includes(lastChar)) {
+            state.result = state.result + 0 + value;
+          } else {
+            state.result = state.result + value;
+          }
         }
+        state.hasDecimal = true;
       }
-
-      state.hasDecimal = true;
     }
-  }
   }
 });
 
