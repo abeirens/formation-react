@@ -9,12 +9,11 @@ import {
   addOperator,
   percent,
   equals,
-  addComma,
-  finalResult
-} from '../../features/calculator/calculatorSlice';
+  addComma
+} from '../../slices/calculator';
 
 export default function CalculatorIndex() {
-  const resultat = useSelector(finalResult);
+  const resultat = useSelector((state) => state.calculator.result);
   const dispatch = useDispatch();
 
   const handleAction = (action, buttonValue) => {

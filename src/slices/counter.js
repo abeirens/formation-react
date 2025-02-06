@@ -32,6 +32,12 @@ export const counterSlice = createSlice({
   }
 });
 
-export const { addNewCounter, increment, decrement, reset, remove } = counterSlice.actions
-export const countersArray = (state) => state.counter.value
+export const {
+  addNewCounter,
+  increment,
+  decrement,
+  reset,
+  remove
+} = counterSlice.actions
+
 export default counterSlice.reducer

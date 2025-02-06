@@ -78,6 +78,14 @@ export const calculatorSlice = createSlice({
   }
 });
 
-export const { reinit, undo, calculate, addOperator, percent, equals, addComma } = calculatorSlice.actions
-export const finalResult = (state) => state.calculator.result
+export const {
+  reinit,
+  undo,
+  calculate,
+  addOperator,
+  percent,
+  equals,
+  addComma
+} = calculatorSlice.actions
+
 export default calculatorSlice.reducer

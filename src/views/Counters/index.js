@@ -7,12 +7,11 @@ import {
   increment,
   decrement,
   reset,
-  remove,
-  countersArray,
-} from '../../features/counter/counterSlice';
+  remove
+} from '../../slices/counter';
 
 export default function CountersIndex() {
-  const array = useSelector(countersArray);
+  const array = useSelector((state) => state.counter.value);
   const dispatch = useDispatch();
 
   return (
